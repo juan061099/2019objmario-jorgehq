@@ -103,3 +103,12 @@ object balanza {
 	method image() {return imagen}
 }
 
+object libra {
+		var valor = 72
+
+	method valor() {return valor}
+
+	method position() {return game.center().left(2).up(2)}
+	method image() {return "libra.png"}
+	
+}
