@@ -19,8 +19,9 @@ object juego {
 object mario {
 
 	var position = game.center()
-	var pesosAhorrados = 0
-
+	var pesosAhorrados = 100
+	var diasInvertidos = 3
+	var rendimientoInversion = 0 
 	method levantar(cosa) {
 		position = cosa.position()
 		pesosAhorrados = pesosAhorrados + cosa.valor()
@@ -33,10 +34,29 @@ object mario {
 	}
 	
 	method ahorros() = pesosAhorrados
+	method diasInv() = diasInvertidos
 	
+	method rendimientoInversion(inversion)
+	{  return inversion.rendimiento(mario)
+	}
 	method image() { return "mario.png"}
 	method position() { return position}
 
+}
+
+object plazoFijo {
+	method rendimiento(persona)
+	{return ((persona.ahorros()*2)/100)*persona.diasInv()
+		
+	}
+	
+}
+
+object lebacs{
+	method rendimiento(persona)
+	{var promedio = (banco.cotizacion()+persona.ahorros())/2
+		return (promedio*10)/100
+	}
 }
 
 object peso {
@@ -102,4 +122,15 @@ object balanza {
 	method position() {return game.center().down(2)}
 	method image() {return imagen}
 }
+
+object libra {
+		var valor = 72
+
+	method valor() {return valor}
+
+	method position() {return game.center().left(2).up(2)}
+	method image() {return "libra.png"}
+	
+}
+
 
